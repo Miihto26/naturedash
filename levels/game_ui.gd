@@ -10,6 +10,7 @@ func _ready():
 	Signals.ResetCombo.connect(ResetCombo)
 	
 	ResetCombo()
+	
 
 func IncrementScore(incr: int):
 	var combo_score_bonus = combo_count * 5
