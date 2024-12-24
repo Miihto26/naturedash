@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b028dqeu30j3a"]
+[gd_scene load_steps=5 format=3 uid="uid://b028dqeu30j3a"]
 
 [ext_resource type="PackedScene" uid="uid://chkgiprsvjohj" path="res://objects/key_listener.tscn" id="1_yubmn"]
 [ext_resource type="PackedScene" uid="uid://vlpn5l457sd1" path="res://levels/game_ui.tscn" id="2_mwse7"]
+[ext_resource type="PackedScene" uid="uid://y205863bnfh8" path="res://objects/level_editor.tscn" id="3_f4jt1"]
 
 [sub_resource type="Environment" id="Environment_ssxjq"]
 background_mode = 3
@@ -27,3 +28,5 @@ key_name = "button_down_smack"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ssxjq")
+
+[node name="LevelEditor" parent="." instance=ExtResource("3_f4jt1")]
