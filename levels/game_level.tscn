@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b028dqeu30j3a"]
+
+[ext_resource type="PackedScene" uid="uid://chkgiprsvjohj" path="res://objects/key_listener.tscn" id="1_yubmn"]
+[ext_resource type="PackedScene" uid="uid://vlpn5l457sd1" path="res://levels/game_ui.tscn" id="2_mwse7"]
+
+[sub_resource type="Environment" id="Environment_ssxjq"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+
+[node name="GameLevel" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="KeyListener" parent="." instance=ExtResource("1_yubmn")]
+position = Vector2(257.565, 265.208)
+frame = 2
+key_name = "button_up_smack"
+
+[node name="KeyListener2" parent="." instance=ExtResource("1_yubmn")]
+position = Vector2(257.565, 372.208)
+frame = 1
+key_name = "button_down_smack"
+
+[node name="GameUI" parent="." instance=ExtResource("2_mwse7")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ssxjq")

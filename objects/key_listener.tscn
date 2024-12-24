@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://chkgiprsvjohj"]
+
+[ext_resource type="Texture2D" uid="uid://cns85qwserykh" path="res://art/TestArrowSpritesheet.png" id="1_qd03o"]
+[ext_resource type="Script" path="res://objects/key_listener.gd" id="2_c62hs"]
+
+[sub_resource type="Animation" id="Animation_k3apn"]
+resource_name = "key_hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GlowOverlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1.2, 1.2, 1.2, 1), Color(1.2, 1.2, 1.2, 0.666667), Color(1.2, 1.2, 1.2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qkets"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GlowOverlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.2, 1.2, 1.2, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4dyl"]
+_data = {
+"RESET": SubResource("Animation_qkets"),
+"key_hit": SubResource("Animation_k3apn")
+}
+
+[node name="KeyListener" type="Sprite2D"]
+scale = Vector2(0.321667, 0.321667)
+texture = ExtResource("1_qd03o")
+hframes = 4
+vframes = 6
+script = ExtResource("2_c62hs")
+
+[node name="RandomSpawnTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="GlowOverlay" type="Sprite2D" parent="."]
+modulate = Color(1.2, 1.2, 1.2, 1)
+texture = ExtResource("1_qd03o")
+hframes = 4
+vframes = 6
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h4dyl")
+}
+
+[connection signal="timeout" from="RandomSpawnTimer" to="." method="_on_random_spawn_timer_timeout"]
