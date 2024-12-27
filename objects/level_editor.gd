@@ -6,7 +6,7 @@ const in_edit_mode: bool = false
 var current_level_name = "1-ENTER-EZRA"
 
 # time it takes falling key to reach critical spot
-var fk_fall_time: float = 1.875
+var fk_fall_time: float = 1.875 + 1
 var fk_output_arr = [[], []]
 
 var level_info = {
@@ -65,7 +65,7 @@ func _ready():
 						button_name = "button_down_smack"
 				
 				for delay in key:
-					SpawnFallingKey(button_name, delay)
+					SpawnFallingKey(button_name, delay - fk_fall_time)
 				
 				counter += 1
 
