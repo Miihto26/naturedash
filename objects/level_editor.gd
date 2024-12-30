@@ -70,7 +70,7 @@ func _ready():
 				counter += 1
 
 func KeyListenerPress(button_name: String, array_num: int):
-	#print(str(array_num) + " " + str($MusicPlyaer.get_playback_position()))
+	print(str(array_num) + " " + str($MusicPlyaer.get_playback_position()))
 	fk_output_arr[array_num-1].append($MusicPlayer.get_playback_position() - fk_fall_time)
 
 func SpawnFallingKey(button_name: String, delay: float):
