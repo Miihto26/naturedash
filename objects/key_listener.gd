@@ -6,10 +6,10 @@ extends Sprite2D
 
 var falling_key_queue = []
 
-var perfect_press_threshold: float = 40
+var perfect_press_threshold: float = 55
 var great_press_threshold: float = 70
-var good_press_threshold: float = 90
-var ok_press_threshold: float = 115
+var good_press_threshold: float = 100
+var ok_press_threshold: float = 120
 
 var perfect_press_score: float = 250
 var great_press_score: float = 100
