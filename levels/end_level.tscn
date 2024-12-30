@@ -91,6 +91,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Label2" type="Label" parent="Control"]
 visible = false
 modulate = Color(0, 0, 0, 1)
+layout_mode = 0
 offset_left = 383.0
 offset_top = 412.0
 offset_right = 454.0

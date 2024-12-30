@@ -20,12 +20,29 @@ var ktp_idx = 0
 
 func _ready():
 	$GlowOverlay.frame = frame + 4
+	get_parent().get_node("AnimatedSprite2D").play("run")
 	Signals.CreateFallingKey.connect(CreateFallingKey)
 
 
 func _process(delta):
 	
 	if Input.is_action_just_pressed(key_name):
+		print(key_name)
+		var cur_animation = get_parent().get_node("AnimatedSprite2D").animation
+		if key_name == 'button_up_smack':
+			if cur_animation == "run" || cur_animation == "downward" || cur_animation == "low_punch": 
+				get_parent().get_node("AnimatedSprite2D").play("upward")
+				print(get_parent().get_node("AnimatedSprite2D").animation)
+			else:
+				get_parent().get_node("AnimatedSprite2D").play("up_punch")
+				print(get_parent().get_node("AnimatedSprite2D").animation)
+		elif key_name == 'button_down_smack':
+			if cur_animation == "run" || cur_animation == "downward" || cur_animation == "low_punch": 
+				get_parent().get_node("AnimatedSprite2D").play("low_punch")
+				print(get_parent().get_node("AnimatedSprite2D").animation)
+			else:
+				get_parent().get_node("AnimatedSprite2D").play("downward")
+				print(get_parent().get_node("AnimatedSprite2D").animation)
 		Signals.KeyListenerPress.emit(key_name, frame) # if frame doesn't line up, might have to use export variable in this script
 	
 	
@@ -100,6 +117,5 @@ func _on_random_spawn_timer_timeout():
 	$RandomSpawnTimer.wait_time = randf_range(0.4, 3)
 	$RandomSpawnTimer.start()
 
-
-
-
+func _on_animated_sprite_2d_animation_finished():
+	get_parent().get_node("AnimatedSprite2D").play("run")

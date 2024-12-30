@@ -1,13 +1,134 @@
-[gd_scene load_steps=5 format=3 uid="uid://b028dqeu30j3a"]
+[gd_scene load_steps=15 format=3 uid="uid://b028dqeu30j3a"]
 
 [ext_resource type="PackedScene" uid="uid://chkgiprsvjohj" path="res://objects/key_listener.tscn" id="1_yubmn"]
 [ext_resource type="PackedScene" uid="uid://vlpn5l457sd1" path="res://levels/game_ui.tscn" id="2_mwse7"]
 [ext_resource type="PackedScene" uid="uid://y205863bnfh8" path="res://objects/level_editor.tscn" id="3_f4jt1"]
+[ext_resource type="Texture2D" uid="uid://qi5evtagbvjo" path="res://art/mc_running_naturedash-Sheet.png" id="4_hgi14"]
 
 [sub_resource type="Environment" id="Environment_ssxjq"]
 background_mode = 3
 glow_enabled = true
 glow_blend_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buk8d"]
+atlas = ExtResource("4_hgi14")
+region = Rect2(140, 0, 35, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqblc"]
+atlas = ExtResource("4_hgi14")
+region = Rect2(35, 0, 35, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bckvt"]
+atlas = ExtResource("4_hgi14")
+region = Rect2(0, 0, 35, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6uq6"]
+atlas = ExtResource("4_hgi14")
+region = Rect2(70, 0, 35, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2seg"]
+atlas = ExtResource("4_hgi14")
+region = Rect2(105, 0, 35, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s81of"]
+atlas = ExtResource("4_hgi14")
+region = Rect2(175, 0, 35, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5051p"]
+atlas = ExtResource("4_hgi14")
+region = Rect2(210, 0, 35, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kojc8"]
+atlas = ExtResource("4_hgi14")
+region = Rect2(245, 0, 35, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wog0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buk8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buk8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buk8d")
+}],
+"loop": false,
+"name": &"downward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqblc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqblc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqblc")
+}],
+"loop": false,
+"name": &"low_punch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bckvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqblc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6uq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2seg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buk8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s81of")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5051p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kojc8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buk8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buk8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buk8d")
+}],
+"loop": false,
+"name": &"up_punch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqblc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqblc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqblc")
+}],
+"loop": false,
+"name": &"upward",
+"speed": 5.0
+}]
 
 [node name="GameLevel" type="Node2D"]
 
@@ -30,3 +151,12 @@ key_name = "button_down_smack"
 environment = SubResource("Environment_ssxjq")
 
 [node name="LevelEditor" parent="." instance=ExtResource("3_f4jt1")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(126, 364)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_wog0t")
+animation = &"up_punch"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="KeyListener" method="_on_animated_sprite_2d_animation_finished"]
