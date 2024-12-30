@@ -46,7 +46,7 @@ func _process(delta):
 		Signals.KeyListenerPress.emit(key_name, frame) # if frame doesn't line up, might have to use export variable in this script
 	
 	
-	if falling_key_queue.size() > 0:
+	if ktp_idx < len(falling_key_queue):
 		if falling_key_queue[ktp_idx].has_passed:
 			ktp_idx += 1
 			
