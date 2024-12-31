@@ -61,9 +61,12 @@ func switch_to_rhythm_game(level_name: String):
 	add_child(active_scene)
 	print("Instantiated Game Level")
 	current_state = GameState.RHYTHM_GAME
+	
+	Signals.StartLevel.emit("") # this is just to make the level_editor work fsr
 
 func _on_StartLevel(level_name: String):
-	switch_to_rhythm_game(level_name)
+	if current_state != GameState.RHYTHM_GAME:
+		switch_to_rhythm_game(level_name)
 
 func _on_FinishLevel(level_name: String):
 	if current_state == GameState.RHYTHM_GAME:

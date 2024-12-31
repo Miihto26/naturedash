@@ -27,6 +27,7 @@ func _ready():
 func _process(delta):
 	
 	if Input.is_action_just_pressed(key_name):
+		
 		print(key_name)
 		var cur_animation = get_parent().get_node("AnimatedSprite2D").animation
 		if key_name == 'button_up_smack':
@@ -43,6 +44,7 @@ func _process(delta):
 			else:
 				get_parent().get_node("AnimatedSprite2D").play("downward")
 				print(get_parent().get_node("AnimatedSprite2D").animation)
+				
 		Signals.KeyListenerPress.emit(key_name, frame) # if frame doesn't line up, might have to use export variable in this script
 	
 	
