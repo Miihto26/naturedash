@@ -16,10 +16,10 @@ signal FinishLevel(level_name: String)
 
 var CurrentSong = '1-ENTER-EZRA'
 var LevelInfo = {
-	'1-ENTER-EZRA': [0,0],
-	'2-THIS-IS-MY-WORLD': [0,0],
-	'3-OUTTA-MY-WAY': [0,0],
-	'4-GRAND-SLAM': [0,0],
-	'5-LUNABLADE' : [0,0],
-	'6-WHITE-WINGS-OF-WONDER': [0,0]
+	'1-ENTER-EZRA': [0,0,[0,0,0,0,0]],
+	'2-THIS-IS-MY-WORLD': [0,0,[0,0,0,0,0]],
+	'3-OUTTA-MY-WAY': [0,0,[0,0,0,0,0]],
+	'4-GRAND-SLAM': [0,0,[0,0,0,0,0]],
+	'5-LUNABLADE' : [0,0,[0,0,0,0,0]],
+	'6-WHITE-WINGS-OF-WONDER': [0,0,[0,0,0,0,0]]
 }

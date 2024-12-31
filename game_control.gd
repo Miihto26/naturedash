@@ -31,6 +31,9 @@ func end_level():
 		if current_state == GameState.RHYTHM_GAME:
 			Signals.LevelInfo[Signals.CurrentSong][0] = active_scene.find_child("GameUI").score
 			Signals.LevelInfo[Signals.CurrentSong][1] = active_scene.find_child("GameUI").max_combo
+			Signals.LevelInfo[Signals.CurrentSong][2] = active_scene.find_child("KeyListener").substats_ct
+			for i in range(5):
+				Signals.LevelInfo[Signals.CurrentSong][2][i] = Signals.LevelInfo[Signals.CurrentSong][2][i] + active_scene.find_child("KeyListener2").substats_ct[i]
 		# end_level_scene.instance().setResults(active_scene.find_child("GameUI").score, active_scene.find_child("GameUI").max_combo)
 		active_scene.queue_free()
 		game_test.queue_free()

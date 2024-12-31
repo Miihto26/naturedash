@@ -17,5 +17,7 @@ func _on_continue_pressed():
 	#game_control.switch_to_overworld()
 
 func setResults(score, combo_count):
+	var substats = Signals.LevelInfo[Signals.CurrentSong][2]
 	$Control/CanvasLayer/ScoreLabel.text = "[center]Score: " + str(score) + "[/center]"
 	$Control/CanvasLayer/ComboLabel.text = "[center]Max combo: " + str(combo_count) + "x[/center]"
+	$Control/CanvasLayer/SubstatsLabel.text = "[center]Perfect: " + str(substats[0]) + "\nGreat: " + str(substats[1]) + "\nGood: " + str(substats[2]) + "\nOK: " + str(substats[3]) + "\nMiss: " + str(substats[4]) + "[/center]"

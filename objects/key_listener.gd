@@ -18,6 +18,8 @@ var ok_press_score: float = 20
 
 var ktp_idx = 0
 
+var substats_ct = [0,0,0,0,0]
+
 func _ready():
 	$GlowOverlay.frame = frame + 4
 	get_parent().get_node("AnimatedSprite2D").play("run")
@@ -31,7 +33,7 @@ func _process(delta):
 		print(key_name)
 		var cur_animation = get_parent().get_node("AnimatedSprite2D").animation
 		if key_name == 'button_up_smack':
-			if cur_animation == "run" || cur_animation == "downward" || cur_animation == "low_punch": 
+			if cur_animation == "run" || cur_animation == "downward" || cur_animation == "low_punch" || cur_animation == "low_punch": 
 				get_parent().get_node("AnimatedSprite2D").play("upward")
 				print(get_parent().get_node("AnimatedSprite2D").animation)
 			else:
@@ -56,6 +58,7 @@ func _process(delta):
 			var st_inst = score_text.instantiate()
 			get_tree().get_root().call_deferred("add_child", st_inst)
 			st_inst.SetTextInfo("MISS")
+			substats_ct[4]  = substats_ct[4] + 1
 			Signals.ResetCombo.emit()
 			st_inst.global_position = global_position + Vector2(0, -15)
 		
@@ -74,29 +77,34 @@ func _process(delta):
 			if distance_from_pass < perfect_press_threshold:
 				Signals.IncrementScore.emit(perfect_press_score)
 				press_score_text = "PERFECT"
+				substats_ct[0]  = substats_ct[0] + 1
 				Signals.IncrementCombo.emit()
 				key_to_pop.queue_free()
 				ktp_idx += 1
 			elif distance_from_pass < great_press_threshold:
 				Signals.IncrementScore.emit(great_press_score)
 				press_score_text = "GREAT"
+				substats_ct[1]  = substats_ct[1] + 1
 				Signals.IncrementCombo.emit()
 				key_to_pop.queue_free()
 				ktp_idx += 1
 			elif distance_from_pass < good_press_threshold:
 				Signals.IncrementScore.emit(good_press_score)
 				press_score_text = "GOOD"
+				substats_ct[2]  = substats_ct[2] + 1
 				Signals.IncrementCombo.emit()
 				key_to_pop.queue_free()
 				ktp_idx += 1
 			elif distance_from_pass < ok_press_threshold:
 				Signals.IncrementScore.emit(ok_press_score)
 				press_score_text = "OK"
+				substats_ct[3]  = substats_ct[3] + 1
 				Signals.IncrementCombo.emit()
 				key_to_pop.queue_free()
 				ktp_idx += 1
 			elif distance_from_pass < 300:
 				press_score_text = "MISS"
+				substats_ct[4]  = substats_ct[4] + 1
 				Signals.ResetCombo.emit()
 				key_to_pop.queue_free()
 				ktp_idx += 1
@@ -120,4 +128,6 @@ func _on_random_spawn_timer_timeout():
 	$RandomSpawnTimer.start()
 
 func _on_animated_sprite_2d_animation_finished():
-	get_parent().get_node("AnimatedSprite2D").play("run")
+	var cur_animation = get_parent().get_node("AnimatedSprite2D").animation
+	if cur_animation == "upward" || cur_animation == "up_punch": get_parent().get_node("AnimatedSprite2D").play("fall")
+	else: get_parent().get_node("AnimatedSprite2D").play("run")

@@ -55,6 +55,29 @@ text = "MAX COMBO: 0x "
 scroll_active = false
 metadata/_edit_use_anchors_ = true
 
+[node name="SubstatsLabel" type="RichTextLabel" parent="Control/CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = -0.15625
+anchor_right = 0.0520833
+anchor_bottom = 0.283951
+offset_left = 500.0
+offset_top = 367.0
+offset_right = 774.0
+offset_bottom = 425.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("1_7s8xj")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "perfect: 0
+Great: 0
+Good: 0
+OK: 0
+Miss: 0"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
 [node name="ColorRect" type="ColorRect" parent="Control"]
 visible = false
 layout_mode = 0
