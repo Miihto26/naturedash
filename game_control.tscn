@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://game_control.gd" id="1_ec1il"]
 
 [node name="GameControl" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_ec1il")

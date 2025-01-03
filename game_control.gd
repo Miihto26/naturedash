@@ -23,6 +23,8 @@ func _ready():
 	game_test = test_scene.instantiate()
 	add_child(game_test)
 	print("Game started. Overworld loaded.")
+	
+	DialogueManager.show_dialogue_balloon(load("res://dialogue/starting.dialogue"), "start")
 
 func end_level():
 	var level_score = 0
