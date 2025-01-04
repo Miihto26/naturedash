@@ -1,4 +1,5 @@
 ~ start
+do Signals.inDialogue = true
 ???: [[Hi|Hello|Howdy]], whats up !!!!!!!!!
 MC: [wave]what the frigma[/wave]
 ???: Don't worry, I'm here to guide you!
@@ -10,7 +11,34 @@ MC: [wave]what the frigma[/wave]
 	Nathan: no! (trust)
 Nathan: Let's try connecting your um [wave]senses[/wave] to the world wowwww
 - errrm okay
+	do Signals.inDialogue = false
 	do switch_to_rhythm_game("1-ENTER-EZRA")
 - oo i i a i u u i i a i
+	do Signals.inDialogue = false
 	do switch_to_rhythm_game("1-ENTER-EZRA")
+=> END
+
+
+~ Icon
+do Signals.inDialogue = true
+Icon: hey wanna help me out with smth
+MC: ermmm sure ig
+Icon: okay 
+do Signals.inDialogue = false
+=> END
+
+~ Icon2
+do Signals.inDialogue = true
+Icon2: hey wanna help me out with smth
+MC: ermmm sure ig
+Icon2: okay great
+do Signals.inDialogue = false
+=> END!
+
+~ Icon3
+do Signals.inDialogue = true
+Icon3: hey wanna help me out with smth
+MC: ermmm sure ig
+Icon3: okay great
+do Signals.inDialogue = false
 => END

@@ -14,6 +14,8 @@ signal KeyListenerPress(button_name: String, array_num: int)
 signal StartLevel(level_name: String)
 signal FinishLevel(level_name: String)
 
+var inDialogue = false
+
 var CurrentSong = '1-ENTER-EZRA'
 var LevelInfo = {
 	'1-ENTER-EZRA': [0,0,[0,0,0,0,0]],
