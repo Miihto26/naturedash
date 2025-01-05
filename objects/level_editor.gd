@@ -3,7 +3,7 @@ extends Node2D
 # SET TO TRUE AND FALSE TO TOGGLE LEVEL EDITOR OR NOT
 const in_edit_mode: bool = false
 
-var current_level_name = "1-ENTER-EZRA"
+var current_level_name = Signals.songs[Signals.CurrentSong]
 
 # time it takes falling key to reach critical spot
 var fk_fall_time: float = 1.875
@@ -83,4 +83,5 @@ func SpawnFallingKey(button_name: String, delay: float):
 
 func _on_music_player_finished():
 	print(fk_output_arr)
+	Signals.CurrentSong += 1
 	Signals.FinishLevel.emit(current_level_name) 

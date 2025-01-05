@@ -1,5 +1,10 @@
 extends Node2D
 
+# progression bar vals
+var compassion = 0
+var connectivity = 0
+var ecoanxiety = 100
+
 # rhythm game signals
 signal IncrementScore(incr: int)
 
@@ -16,12 +21,13 @@ signal FinishLevel(level_name: String)
 
 var inDialogue = false
 
-var CurrentSong = '1-ENTER-EZRA'
+var songs = ['1-ENTER-EZRA','2-THIS-IS-MY-WORLD','3-OUTTA-MY-WAY','4-GRAND-SLAM','5-LUNABLADE','6-WHITE-WINGS-OF-WONDER']
+var CurrentSong: int=0
 var LevelInfo = {
-	'1-ENTER-EZRA': [0,0,[0,0,0,0,0]],
-	'2-THIS-IS-MY-WORLD': [0,0,[0,0,0,0,0]],
-	'3-OUTTA-MY-WAY': [0,0,[0,0,0,0,0]],
-	'4-GRAND-SLAM': [0,0,[0,0,0,0,0]],
-	'5-LUNABLADE' : [0,0,[0,0,0,0,0]],
-	'6-WHITE-WINGS-OF-WONDER': [0,0,[0,0,0,0,0]]
+	0: [0,0,[0,0,0,0,0]],
+	1: [0,0,[0,0,0,0,0]],
+	2: [0,0,[0,0,0,0,0]],
+	3: [0,0,[0,0,0,0,0]],
+	4 : [0,0,[0,0,0,0,0]],
+	5: [0,0,[0,0,0,0,0]]
 }

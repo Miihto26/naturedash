@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b55lg6m4h3lug"]
+[gd_scene load_steps=5 format=3 uid="uid://b55lg6m4h3lug"]
 
+[ext_resource type="PackedScene" uid="uid://c0okkqe42mlyh" path="res://UI/progression_bars.tscn" id="1_4me3o"]
 [ext_resource type="Script" path="res://npc_overworld.gd" id="1_p1i8a"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0qgds"]
@@ -9,6 +10,10 @@ load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.cte
 size = Vector2(127, 131)
 
 [node name="Town" type="Node2D"]
+
+[node name="ProgressionBars" parent="." instance=ExtResource("1_4me3o")]
+offset_top = 20.0
+offset_bottom = 20.0
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(230, 210)

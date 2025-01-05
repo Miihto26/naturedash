@@ -4,6 +4,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Signals.connectivity += int(Signals.LevelInfo[Signals.CurrentSong][0]/3000)
+	Signals.ecoanxiety -= int(Signals.LevelInfo[Signals.CurrentSong][0]/3000)
 	setResults(Signals.LevelInfo[Signals.CurrentSong][0],Signals.LevelInfo[Signals.CurrentSong][1])
 
 func _on_retry_pressed():
