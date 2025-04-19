@@ -5,6 +5,9 @@ const in_edit_mode: bool = false
 
 var current_level_name = Signals.songs[Signals.CurrentSong]
 
+@onready var background_manager_scene = preload("res://art/backgrounds/BackgroundManager.tscn")
+var current_background: Node = null
+
 # time it takes falling key to reach critical spot
 var fk_fall_time: float = 1.875
 var fk_output_arr = [[], []]
@@ -51,6 +54,8 @@ func _on_StartLevel(level_name: String):
 	$MusicPlayer.stream = level_info.get(current_level_name).get("music")
 	$MusicPlayer.play()
 	
+	load_level_background(current_level_name)
+	
 	if in_edit_mode:
 		fk_output_arr = [[], []]
 		Signals.KeyListenerPress.connect(KeyListenerPress)
@@ -73,6 +78,12 @@ func _on_StartLevel(level_name: String):
 			
 			counter += 1
 
+func load_level_background(level_name: String):
+	print("Loaded Background")
+	current_background = background_manager_scene.instantiate()
+	add_child(current_background)
+	current_background.set_level(current_level_name)
+
 func KeyListenerPress(button_name: String, array_num: int):
 	print(str(array_num) + " " + str($MusicPlayer.get_playback_position()))
 	fk_output_arr[array_num-1].append($MusicPlayer.get_playback_position() - fk_fall_time)
@@ -83,5 +94,9 @@ func SpawnFallingKey(button_name: String, delay: float):
 
 func _on_music_player_finished():
 	print(fk_output_arr)
+	
+	if current_background:
+		current_background.queue_free()
+	
 	Signals.CurrentSong += 1
 	Signals.FinishLevel.emit(current_level_name) 

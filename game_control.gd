@@ -86,6 +86,7 @@ func switch_to_rhythm_game(level_name: String):
 	print("Switching to Rhythm Game")
 	active_scene = rhythm_game_scene.instantiate()
 	add_child(active_scene)
+	
 	print("Instantiated Game Level")
 	current_state = GameState.RHYTHM_GAME
 	
@@ -104,4 +105,3 @@ func _on_FinishLevel(level_name: String):
 		end_level()
 	else:
 		switch_to_overworld()
-

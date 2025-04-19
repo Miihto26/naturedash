@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcs06b1xfmcyq"]
+
+[ext_resource type="Script" path="res://art/backgrounds/BackgroundManager.gd" id="1_7spin"]
+
+[node name="BackgroundManager" type="Node2D"]
+script = ExtResource("1_7spin")
