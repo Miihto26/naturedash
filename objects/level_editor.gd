@@ -78,12 +78,6 @@ func _on_StartLevel(level_name: String):
 			
 			counter += 1
 
-func load_level_background(level_name: String):
-	print("Loaded Background")
-	current_background = background_manager_scene.instantiate()
-	add_child(current_background)
-	current_background.set_level(current_level_name)
-
 func KeyListenerPress(button_name: String, array_num: int):
 	print(str(array_num) + " " + str($MusicPlayer.get_playback_position()))
 	fk_output_arr[array_num-1].append($MusicPlayer.get_playback_position() - fk_fall_time)
@@ -100,3 +94,40 @@ func _on_music_player_finished():
 	
 	Signals.CurrentSong += 1
 	Signals.FinishLevel.emit(current_level_name) 
+
+func load_level_background(level_name: String):
+	print("Loaded Background")
+	# Create background manager
+	current_background = background_manager_scene.instantiate()
+	add_child(current_background)
+	
+	if current_level_name == "1-ENTER-EZRA":
+		current_background.scale_factor = 3.0
+		current_background.centered = true
+		current_background.offset = Vector2(0, 0)
+	elif current_level_name == "2-THIS-IS-MY-WORLD":
+		current_background.scale_factor = 3.0
+		current_background.centered = true
+		current_background.offset = Vector2(0, 125)
+	elif current_level_name == "3-OUTTA-MY-WAY":
+		current_background.scale_factor = 5.0
+		current_background.centered = true
+		current_background.offset = Vector2(0, 0)
+	elif current_level_name == "4-GRAND-SLAM":
+		current_background.scale_factor = 5.0
+		current_background.centered = true
+		current_background.offset = Vector2(0, 0)
+	elif current_level_name == "5-LUNABLADE":
+		current_background.scale_factor = 3.0
+		current_background.centered = true
+		current_background.offset = Vector2(0, 0)
+	elif current_level_name == "6-WHITE-WINGS-OF-WONDER":
+		current_background.scale_factor = 4.0
+		current_background.centered = true
+		current_background.offset = Vector2(50, 150)
+	
+	# Tell it which level to show background for
+	current_background.set_level(current_level_name)
+	
+	await get_tree().create_timer(0.5).timeout  # Give it time to load
+	current_background.print_debug_info()
