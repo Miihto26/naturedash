@@ -102,6 +102,13 @@ func _on_FinishLevel(level_name: String):
 			if is_instance_valid(item): item.queue_free()
 		for item in active_scene.find_child("KeyListener2").falling_key_queue:
 			if is_instance_valid(item): item.queue_free()
+		
+		# Clear falling spikes
+		for item in active_scene.find_child("KeyListener").falling_spikes_queue:
+			if is_instance_valid(item): item.queue_free()
+		for item in active_scene.find_child("KeyListener2").falling_spikes_queue:
+			if is_instance_valid(item): item.queue_free()
+		
 		end_level()
 	else:
 		switch_to_overworld()

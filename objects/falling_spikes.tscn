@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3w28fafj2lbw"]
+
+[ext_resource type="Script" path="res://objects/falling_spikes.gd" id="1_folpq"]
+[ext_resource type="Texture2D" uid="uid://tmjhooo6yawc" path="res://art/spike.png" id="1_l6n3d"]
+
+[node name="falling_spikes" type="Sprite2D"]
+texture = ExtResource("1_l6n3d")
+script = ExtResource("1_folpq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_destroy_timer_timeout"]
