@@ -6,6 +6,7 @@ extends Node2D
 func _ready():
 	Signals.connectivity += int(Signals.LevelInfo[Signals.CurrentSong][0]/3000)
 	Signals.ecoanxiety -= int(Signals.LevelInfo[Signals.CurrentSong][0]/3000)
+	print(Signals.ecoanxiety)
 	setResults(Signals.LevelInfo[Signals.CurrentSong][0],Signals.LevelInfo[Signals.CurrentSong][1])
 
 func _on_retry_pressed():

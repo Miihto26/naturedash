@@ -890,6 +890,8 @@ load_path = "res://.godot/imported/grandpaoverworld.png-a933e9fe08ae10a713739551
 load_path = "res://.godot/imported/littleboyoverworld.png-d4f6941adbe75a9ba4f23aaf674fe685.ctex"
 
 [node name="Town" type="Node2D"]
+position = Vector2(-17, -8)
+scale = Vector2(1.03587, 1.05927)
 script = ExtResource("1_yn3yl")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -912,8 +914,10 @@ metadata/_edit_lock_ = true
 [node name="ProgressionBars" parent="." instance=ExtResource("1_4me3o")]
 offset_top = 20.0
 offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Icon1" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(611, 156)
 scale = Vector2(1.8, 1.8)
 texture = SubResource("CompressedTexture2D_3fuij")
@@ -921,12 +925,14 @@ script = ExtResource("1_p1i8a")
 metadata/_edit_group_ = true
 
 [node name="Indicator1" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(610, 133)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_cdc38")
 animation = &"completed"
 
 [node name="Icon2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(842, 484)
 scale = Vector2(2, 2)
 texture = SubResource("CompressedTexture2D_1cgt5")
@@ -934,12 +940,14 @@ script = ExtResource("1_p1i8a")
 metadata/_edit_group_ = true
 
 [node name="Indicator2" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(841, 440)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_cdc38")
 animation = &"completed"
 
 [node name="Icon3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(989, 192)
 scale = Vector2(2, 2)
 texture = SubResource("CompressedTexture2D_4a2rj")
@@ -947,12 +955,14 @@ script = ExtResource("1_p1i8a")
 metadata/_edit_group_ = true
 
 [node name="Indicator3" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(989, 144)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_cdc38")
 animation = &"new"
 
 [node name="Icon4" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(253, 466)
 scale = Vector2(2, 2)
 texture = SubResource("CompressedTexture2D_vy33h")
@@ -960,12 +970,14 @@ script = ExtResource("1_p1i8a")
 metadata/_edit_group_ = true
 
 [node name="Indicator4" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(244, 422)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_cdc38")
 animation = &"completed"
 
 [node name="Icon5" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(485, 481)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("CompressedTexture2D_fwxjl")
@@ -973,12 +985,15 @@ script = ExtResource("1_p1i8a")
 metadata/_edit_group_ = true
 
 [node name="Indicator5" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(486, 448)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_cdc38")
 animation = &"new"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+visible = false
 autoplay = true
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+visible = false
