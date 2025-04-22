@@ -75,3 +75,7 @@ func _process(delta):
 	await get_tree().create_timer(0.1).timeout
 		
 	pass
+
+
+func _on_audio_stream_player_2d_finished():
+	$AudioStreamPlayer2D.play()
