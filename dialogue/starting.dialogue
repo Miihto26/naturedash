@@ -1,28 +1,64 @@
 ~ start
 do Signals.inDialogue = true
-???: [[Hi|Hello|Howdy]], whats up !!!!!!!!!
-You: [wave]what the frigma[/wave] [#angry]
-???: Don't worry, I'm here to guide you!
+do staticSFX()
+You: ...[#pensive]
+You: What's this new notification on my phone?
+You: "The Earth will become uninhabitable in 10 years if we don't act immediately...?"[#pensive]
+You: "Every natural disaster today is directly caused by climate change..."[#pensive]
+You: "There’s nothing we can do anymore — it’s already too late..."[#pensive]
+You: (Sigh...)
+do clockSFX()
+You: Is there any hope left for this world...?
+You: ...How much longer before our Doomsday Clock strikes midnight?
+You: ...[#pensive]
+You: Maybe I should take a walk outside...to clear my mind, or whatever.
+do changeBackground()
+You: ...[#pensive]
+You: The wind, the birds, the trees..
+You: If the internet's right, these will all be destroyed in a few years..
+You: So what's the point then?
+do fairySFX()
+???: !!
+You: What was that?
+Guide: (Poof!) 
+do poofSFX()
+Guide: Don't worry, I've arrived!
+do fairyLongSFX()
 - Who are you?
-	You: Who are you? [#happy]
-	Nathan: I'm Nathan :)
-	You: [shake]WHAT tHE FUUUUUUUuuuudge[/shake]
-	Nathan: [wave]teheee![/wave]
+	You: Who are you?
+	Guide: I'm Guide :)
+	You: ???
+	Guide: [wave]Teheee![/wave]
 - Am I dreaming?
 	You: Am I dreaming?
-	Nathan: no! (trust)
-	You: ok! [#happy]
-Nathan: Let's try connecting your um [wave]senses[/wave] to the world wowwww
-- errrm okay
-	You: errrm okay [#happy]
-	do Signals.inDialogue = false
-	do switch_to_rhythm_game("1-ENTER-EZRA")
-- oo i i a i u u i i a i
-	You: oo i i a i u u i i a i[#happy]
-	do Signals.inDialogue = false
-	do switch_to_rhythm_game("1-ENTER-EZRA")
+	Guide: No! I'm Guide, and I'm here to...you guessed it! 
+Guide: I'm here to give you some advice!
+Guide: It's normal to feel lost sometimes, and to lose track of your senses.
+Guide: In moments like these, close your eyes...
+You: Okay...[#pensive]
+Guide: FEEL the cool wind blowing on your cheeks..
+Guide: HEAR the encouraging whistling of the birds..
+Guide: SEE each individual bristle of the pine trees...
+Guide: Do you feel better now?
+do birdSFX()
+You: ...[#pensive]
+You: ...Yes, I do. Thank you.[#happy]
+Guide: Embrace it all...combine your senses with nature!
+You: How do I do that?
+Guide: Close your eyes again!
+You: Okay...[#pensive]
+Guide: The wondrous music of nature...perhaps the way to line up with it is to... [wave]use the arrow keys![/wave]
+Guide: Remember! Use your senses! They will serve you a [wave]magical[/wave] purpose!
+do Signals.inDialogue = false
+do instantiateGT()
+do switch_to_rhythm_game("1-ENTER-EZRA")
 => END
 
+~ startOverworld
+You: I'm feeling better after connecting my senses to nature.[#happy]
+You: Maybe if I talked to some of the others in my town, I could ease my eco-anxiety...
+You: I could also connect more with them and see how they show their compassion for our community...[#happy]
+=> END
 
 ~ Icon1
 do Signals.inDialogue = true

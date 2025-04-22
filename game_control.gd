@@ -3,6 +3,7 @@ extends Node2D
 enum GameState { OVERWORLD, RHYTHM_GAME, END_CREDITS }
 
 @onready var overworld_scene = preload("res://town.tscn")
+@onready var start_scene = preload("res://start.tscn")
 @onready var rhythm_game_scene = preload("res://levels/game_level.tscn")
 @onready var end_level_scene = preload("res://levels/end_level.tscn")
 @onready var end_credits_scene = preload("res://end_credits.tscn")
@@ -23,13 +24,44 @@ func _ready():
 	Signals.StartLevel.connect(_on_StartLevel)
 	Signals.FinishLevel.connect(_on_FinishLevel)
 	
-	switch_to_overworld()
+	active_scene = start_scene.instantiate()
+	add_child(active_scene)
+	current_state = GameState.OVERWORLD
 	
+	
+	print("Game started. Overworld loaded.")
+	DialogueManager.show_dialogue_balloon(load("res://dialogue/starting.dialogue"), "start")
+
+func instantiateGT():
 	game_test = test_scene.instantiate()
 	add_child(game_test)
-	print("Game started. Overworld loaded.")
-	
-	DialogueManager.show_dialogue_balloon(load("res://dialogue/starting.dialogue"), "start")
+
+func fairySFX():
+	active_scene.get_node("SFX").stream = load("res://music/fairy-sfx.mp3")
+	active_scene.get_node("SFX").play()
+
+func fairyLongSFX():
+	active_scene.get_node("SFX").stream = load("res://music/fairy-theme.mp3")
+	active_scene.get_node("SFX").play()
+func birdSFX():
+	active_scene.get_node("SFX").stream = load("res://music/birds-chirping.mp3")
+	active_scene.get_node("SFX").play()
+func poofSFX():
+	active_scene.get_node("SFX").stream = load("res://music/bubble-pop.mp3")
+	active_scene.get_node("SFX").play()
+func clockSFX():
+	active_scene.get_node("SFX").stream = load("res://music/slow-clock-tension.mp3")
+	active_scene.get_node("SFX").play()
+
+func staticSFX():
+	active_scene.get_node("SFX").stream = load("res://music/static.mp3")
+	active_scene.get_node("SFX").play()
+
+func changeBackground():
+	active_scene.get_node("SFX").stream = load("res://music/door-open-close.mp3")
+	active_scene.get_node("background").hide()
+	active_scene.get_node("SFX").play()
+	active_scene.get_node("background2").show()
 
 func end_level():
 	var level_score = 0
@@ -59,12 +91,12 @@ func switch_to_overworld():
 	if active_scene:
 		print("DIE")
 		active_scene.queue_free()
-		
+	
 	print("Switching to Overworld")
 	active_scene = overworld_scene.instantiate()
 	add_child(active_scene)
-	print(Signals.compassion)
 	current_state = GameState.OVERWORLD
+	DialogueManager.show_dialogue_balloon(load("res://dialogue/starting.dialogue"), "startOverworld")
 
 func switch_to_rhythm_game(level_name: String):
 	if active_scene:
