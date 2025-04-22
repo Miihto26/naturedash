@@ -19,6 +19,7 @@ func _ready():
 				allIndicators[i].hide()
 			else:
 				allIndicators[i].show()
+				allIndicators[i].play("new")
 		else:
 			allNodes[i].hide()
 			allIndicators[i].hide()

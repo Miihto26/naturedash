@@ -71,13 +71,13 @@ func switch_to_overworld():
 	active_scene.get_node("ProgressionBars").get_node("connectivity").value = prev_connectivity
 	active_scene.get_node("ProgressionBars").get_node("ecoanxiety").value = prev_ecoanxiety
 	while active_scene.get_node("ProgressionBars").get_node("compassion").value != Signals.compassion:
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.05).timeout
 		active_scene.get_node("ProgressionBars").get_node("compassion").value += 1
 	while active_scene.get_node("ProgressionBars").get_node("connectivity").value != Signals.connectivity: 
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.05).timeout
 		active_scene.get_node("ProgressionBars").get_node("connectivity").value += 1
 	while active_scene.get_node("ProgressionBars").get_node("ecoanxiety").value != Signals.ecoanxiety:
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.05).timeout
 		active_scene.get_node("ProgressionBars").get_node("ecoanxiety").value -= 1
 	prev_compassion = Signals.compassion
 	prev_connectivity = Signals.connectivity

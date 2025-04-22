@@ -26,40 +26,60 @@ Nathan: Let's try connecting your um [wave]senses[/wave] to the world wowwww
 
 ~ Icon1
 do Signals.inDialogue = true
-Icon: hey wanna help me out with smth
-MC: ermmm sure ig
-Icon: okay 
+if Signals.npcInteracted[0] == 0:
+	Icon: hey wanna help me out with smth
+	MC: ermmm sure ig[#angry]
+	Icon: okay 
+else:
+	Icon: thanks for the help earlier
+	MC: np
 do Signals.inDialogue = false
 => END
 
 ~ Icon2
 do Signals.inDialogue = true
-Icon2: hey wanna help me out with smth
-MC: ermmm sure ig
-Icon2: okay great
+if Signals.npcInteracted[1] == 0:
+	Icon2: hey wanna help me out with smth
+	MC: ermmm sure ig[#angry]
+	Icon2: okay 
+else:
+	Icon2: thanks for the help earlier
+	MC: np
 do Signals.inDialogue = false
 => END!
 
 ~ Icon3
 do Signals.inDialogue = true
-Icon3: hey wanna help me out with smth
-MC: ermmm sure ig
-Icon3: okay great
+if Signals.npcInteracted[2] == 0:
+	Icon3: hey wanna help me out with smth
+	MC: ermmm sure ig[#angry]
+	Icon3: okay 
+else:
+	Icon3: thanks for the help earlier
+	MC: np
 do Signals.inDialogue = false
 => END
 
 ~ Icon4
 do Signals.inDialogue = true
-Icon3: hey wanna help me out with smth
-MC: ermmm sure ig
-Icon3: okay great
+if Signals.npcInteracted[3] == 0:
+	Icon4: hey wanna help me out with smth
+	MC: ermmm sure ig[#angry]
+	Icon4: okay 
+else:
+	Icon4: thanks for the help earlier
+	MC: np
 do Signals.inDialogue = false
 => END
 
 ~ Icon5
 do Signals.inDialogue = true
-Icon3: hey wanna help me out with smth
-MC: ermmm sure ig
-Icon3: okay great
+if Signals.npcInteracted[4] == 0:
+	Icon5: hey wanna help me out with smth
+	MC: ermmm sure ig[#angry]
+	Icon5: okay 
+else:
+	Icon5: thanks for the help earlier
+	MC: np
 do Signals.inDialogue = false
 => END
