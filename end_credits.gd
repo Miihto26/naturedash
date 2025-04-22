@@ -11,8 +11,8 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 
 # Scroll speed and duration
-@export var scroll_speed: int = 50
-@export var scroll_duration: int = 60  # Duration in seconds
+@export var scroll_speed: int = 45
+@export var scroll_duration: int = 70  # Duration in seconds
 
 # Variables to control the state
 var scrolling = true
@@ -20,6 +20,9 @@ var final_phase = false
 var credits_finished = false
 
 func _ready():
+	
+	$Timer.timeout.connect(start_final_phase)
+	
 	# Initialize the credits position
 	credits_container.position.y = get_viewport_rect().size.y
 	
@@ -86,7 +89,45 @@ func setup_animations():
 	# Add the animation to the library
 	library.add_animation("scroll_credits", animation)
 	
-	# ... rest of your animation setup ...
+	
+	# Create final animation (Thank You and title reveal)
+	var final_animation = Animation.new()
+	final_animation.length = 10  # 10 seconds for the final sequence
+	
+	# Add track for "Thank You" fade in
+	track_index = final_animation.add_track(Animation.TYPE_VALUE)
+	final_animation.track_set_path(track_index, "ThankYouLabel:modulate:a")
+	final_animation.track_insert_key(track_index, 0, 0)
+	final_animation.track_insert_key(track_index, 1, 1)
+	
+	# Add track for "Thank You" fade out
+	track_index = final_animation.add_track(Animation.TYPE_VALUE)
+	final_animation.track_set_path(track_index, "ThankYouLabel:modulate:a")
+	final_animation.track_insert_key(track_index, 3, 1)
+	final_animation.track_insert_key(track_index, 4, 0)
+	
+	# YGDA LABEL FADE IN
+	track_index = final_animation.add_track(Animation.TYPE_VALUE)
+	final_animation.track_set_path(track_index, "YGDALabel:modulate:a")
+	final_animation.track_insert_key(track_index, 4, 0)
+	final_animation.track_insert_key(track_index, 5, 1)
+	
+	# YGDA LABEL FADE OUT
+	track_index = final_animation.add_track(Animation.TYPE_VALUE)
+	final_animation.track_set_path(track_index, "YGDALabel:modulate:a")
+	final_animation.track_insert_key(track_index, 7, 1)
+	final_animation.track_insert_key(track_index, 8, 0)
+	
+	# Add track for game title fade in
+	track_index = final_animation.add_track(Animation.TYPE_VALUE)
+	final_animation.track_set_path(track_index, "GameTitleLabel:modulate:a")
+	final_animation.track_insert_key(track_index, 8, 0)
+	final_animation.track_insert_key(track_index, 9, 1)
+	
+	# Add the final animation to the library
+	library.add_animation("final_phase", final_animation)
+	
+	
 	
 	# Add the library to the animation player
 	animation_player.add_animation_library("", library)
@@ -97,19 +138,61 @@ func setup_animations():
 	print("Credits container size: ", credits_container.size)
 
 func _process(delta):
-	# Monitor the animation progress
-	if animation_player.current_animation == "scroll_credits" and not animation_player.is_playing() and not final_phase:
-		# Start the final phase
-		final_phase = true
-		animation_player.play("final_phase")
-		print("Starting final phase animation")
+	# Monitor the credits container position instead of relying only on animation state
+	if scrolling and not final_phase:
+		# Check if the animation is done by position rather than animation state
+		if credits_container.position.y <= -credits_container.size.y + get_viewport_rect().size.y:
+			print("Credits reached end position by position check")
+			scrolling = false
+			$Timer.start()  # Start the 4-second timer
+			print("Waiting 4 seconds before final phase...")
+		
+		# Also check animation state as a backup
+		if animation_player.current_animation == "scroll_credits" and not animation_player.is_playing():
+			print("Credits reached end position by animation check")
+			scrolling = false
+			$Timer.start()  # Start the 4-second timer
+			print("Waiting 4 seconds before final phase...")
 	
-	# Once final animation is done, set credits_finished to true
-	if final_phase and animation_player.current_animation == "final_phase" and not animation_player.is_playing():
-		credits_finished = true
-		print("Credits finished")
+	# Debug output every few seconds
+	if Engine.get_frames_drawn() % 60 == 0:  # Every ~1 second at 60fps
+		print("Credits Y pos: ", credits_container.position.y)
+		print("Target Y pos: ", -credits_container.size.y + get_viewport_rect().size.y)
+		print("Animation playing: ", animation_player.is_playing())
+		print("Current animation: ", animation_player.current_animation)
+		print("Final phase: ", final_phase)
 
-func _input(event):
-	# Prevent any input actions after credits are done
-	if credits_finished:
-		get_viewport().set_input_as_handled()
+# New function to handle the transition
+func start_final_phase():
+	scrolling = false
+	final_phase = true
+	
+	# Make sure the credits are fully scrolled
+	credits_container.position.y = -credits_container.size.y
+	
+	# Manually control the label animations with longer durations
+	var tween = create_tween()
+	
+	# First fade in Thank You
+	tween.tween_property(thank_you_label, "modulate:a", 1.0, 1.5)  # Slower fade in (1.5s)
+	# Wait 4 seconds instead of 2
+	tween.tween_interval(4.0)
+	# Fade out Thank You
+	tween.tween_property(thank_you_label, "modulate:a", 0.0, 1.5)  # Slower fade out (1.5s)
+	
+	# Fade in YGDA
+	tween.tween_property(ygda_label, "modulate:a", 1.0, 1.5)  # Slower fade in
+	# Wait 4 seconds
+	tween.tween_interval(4.0)
+	# Fade out YGDA
+	tween.tween_property(ygda_label, "modulate:a", 0.0, 1.5)  # Slower fade out
+	
+	# Fade in Game Title - leave this visible longer
+	tween.tween_property(game_title_label, "modulate:a", 1.0, 1.5)  # Slower fade in
+	# Wait 6 seconds for the game title to stay visible
+	tween.tween_interval(6.0)
+	
+	# Signal when all animations complete
+	tween.tween_callback(func(): credits_finished = true)
+	
+	print("Starting final phase animations with tween")
