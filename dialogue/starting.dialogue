@@ -24,7 +24,7 @@ Nathan: Let's try connecting your um [wave]senses[/wave] to the world wowwww
 => END
 
 
-~ Icon
+~ Icon1
 do Signals.inDialogue = true
 Icon: hey wanna help me out with smth
 MC: ermmm sure ig
@@ -41,6 +41,22 @@ do Signals.inDialogue = false
 => END!
 
 ~ Icon3
+do Signals.inDialogue = true
+Icon3: hey wanna help me out with smth
+MC: ermmm sure ig
+Icon3: okay great
+do Signals.inDialogue = false
+=> END
+
+~ Icon4
+do Signals.inDialogue = true
+Icon3: hey wanna help me out with smth
+MC: ermmm sure ig
+Icon3: okay great
+do Signals.inDialogue = false
+=> END
+
+~ Icon5
 do Signals.inDialogue = true
 Icon3: hey wanna help me out with smth
 MC: ermmm sure ig
