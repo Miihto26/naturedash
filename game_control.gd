@@ -1,10 +1,11 @@
 extends Node2D
 
-enum GameState { OVERWORLD, RHYTHM_GAME }
+enum GameState { OVERWORLD, RHYTHM_GAME, END_CREDITS }
 
 @onready var overworld_scene = preload("res://town.tscn")
 @onready var rhythm_game_scene = preload("res://levels/game_level.tscn")
 @onready var end_level_scene = preload("res://levels/end_level.tscn")
+@onready var end_credits_scene = preload("res://end_credits.tscn")
 
 @onready var test_scene = preload("res://test_scene.tscn")
 
@@ -44,11 +45,15 @@ func end_level():
 		active_scene.queue_free()
 		game_test.queue_free()
 	print("End of level")
-	active_scene = end_level_scene.instantiate()
-	add_child(active_scene)
-	game_test = test_scene.instantiate()
-	add_child(game_test)
-	current_state = GameState.OVERWORLD
+	
+	if Signals.CurrentSong >= 6:  # Since arrays are 0-indexed, song 6 is at index 5
+		switch_to_end_credits()
+	else:
+		active_scene = end_level_scene.instantiate()
+		add_child(active_scene)
+		game_test = test_scene.instantiate()
+		add_child(game_test)
+		current_state = GameState.OVERWORLD
 
 func switch_to_overworld():
 	if active_scene:
@@ -91,6 +96,18 @@ func switch_to_rhythm_game(level_name: String):
 	current_state = GameState.RHYTHM_GAME
 	
 	Signals.StartLevel.emit("") # this is just to make the level_editor work fsr
+
+func switch_to_end_credits():
+	if active_scene:
+		active_scene.queue_free()
+	
+	if game_test:
+		game_test.queue_free()
+	
+	print("Switching to End Credits")
+	active_scene = end_credits_scene.instantiate()
+	add_child(active_scene)
+	current_state = GameState.END_CREDITS
 
 func _on_StartLevel(level_name: String):
 	if current_state != GameState.RHYTHM_GAME:
