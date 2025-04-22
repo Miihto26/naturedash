@@ -181,12 +181,12 @@ animations = [{
 position = Vector2(576, 324)
 
 [node name="KeyListener" parent="." instance=ExtResource("1_yubmn")]
-position = Vector2(257.565, 265.208)
+position = Vector2(271.065, 384.208)
 frame = 2
 key_name = "button_up_smack"
 
 [node name="KeyListener2" parent="." instance=ExtResource("1_yubmn")]
-position = Vector2(257.565, 372.208)
+position = Vector2(271.065, 491.208)
 frame = 1
 key_name = "button_down_smack"
 
@@ -199,7 +199,7 @@ environment = SubResource("Environment_ssxjq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(195, 307)
+position = Vector2(208.5, 426)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_wog0t")
 animation = &"fall"

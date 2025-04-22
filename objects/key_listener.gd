@@ -28,7 +28,7 @@ var is_jumping = false
 var jump_velocity = -100
 var current_jump_velocity = 0
 var gravity = 150
-var base_y_position = 225
+var base_y_position = 375
 
 var animation_offsets = {
 	"run": Vector2(0, 0),

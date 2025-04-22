@@ -120,6 +120,9 @@ func _on_music_player_finished():
 	
 	if current_background:
 		current_background.queue_free()
+		current_background.get_node("GrassGround").visible = false
+		current_background.get_node("RockGround").visible = false
+		current_background.get_node("BossGround").visible = false
 	
 	Signals.CurrentSong += 1
 	Signals.FinishLevel.emit(current_level_name) 
@@ -130,30 +133,43 @@ func load_level_background(level_name: String):
 	current_background = background_manager_scene.instantiate()
 	add_child(current_background)
 	
+	current_background.get_node("GrassGround").visible = false
+	current_background.get_node("RockGround").visible = false
+	current_background.get_node("BossGround").visible = false
+	current_background.get_node("GrassGround").z_index = -10
+	current_background.get_node("RockGround").z_index = -10
+	current_background.get_node("BossGround").z_index = -10
+	
 	if current_level_name == "1-ENTER-EZRA":
 		current_background.scale_factor = 3.0
 		current_background.centered = true
 		current_background.offset = Vector2(0, 0)
+		current_background.get_node("GrassGround").visible = true
 	elif current_level_name == "2-THIS-IS-MY-WORLD":
 		current_background.scale_factor = 3.0
 		current_background.centered = true
 		current_background.offset = Vector2(0, 125)
+		current_background.get_node("GrassGround").visible = true
 	elif current_level_name == "3-OUTTA-MY-WAY":
 		current_background.scale_factor = 5.0
 		current_background.centered = true
 		current_background.offset = Vector2(0, 0)
+		current_background.get_node("RockGround").visible = true
 	elif current_level_name == "4-GRAND-SLAM":
 		current_background.scale_factor = 5.0
 		current_background.centered = true
 		current_background.offset = Vector2(0, 0)
+		current_background.get_node("RockGround").visible = true
 	elif current_level_name == "5-LUNABLADE":
 		current_background.scale_factor = 3.0
 		current_background.centered = true
 		current_background.offset = Vector2(0, 0)
+		current_background.get_node("BossGround").visible = true
 	elif current_level_name == "6-WHITE-WINGS-OF-WONDER":
 		current_background.scale_factor = 4.0
 		current_background.centered = true
 		current_background.offset = Vector2(50, 150)
+		current_background.get_node("BossGround").visible = true
 	
 	# Tell it which level to show background for
 	current_background.set_level(current_level_name)
@@ -167,6 +183,9 @@ func _on_button_pressed():
 	
 	if current_background:
 		current_background.queue_free()
+		current_background.get_node("GrassGround").visible = false
+		current_background.get_node("RockGround").visible = false
+		current_background.get_node("BossGround").visible = false
 	
 	Signals.CurrentSong += 1
 	Signals.FinishLevel.emit(current_level_name) 
@@ -177,6 +196,9 @@ func _on_button_2_pressed():
 	
 	if current_background:
 		current_background.queue_free()
+		current_background.get_node("GrassGround").visible = false
+		current_background.get_node("RockGround").visible = false
+		current_background.get_node("BossGround").visible = false
 	
 	Signals.CurrentSong -= 1
 	Signals.FinishLevel.emit(current_level_name)
