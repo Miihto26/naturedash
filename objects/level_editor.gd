@@ -176,29 +176,3 @@ func load_level_background(level_name: String):
 	
 	await get_tree().create_timer(0.5).timeout  # Give it time to load
 	current_background.print_debug_info()
-
-
-func _on_button_pressed():
-	print("SKIPPING LEVEL (dev)")
-	
-	if current_background:
-		current_background.queue_free()
-		current_background.get_node("GrassGround").visible = false
-		current_background.get_node("RockGround").visible = false
-		current_background.get_node("BossGround").visible = false
-	
-	Signals.CurrentSong += 1
-	Signals.FinishLevel.emit(current_level_name) 
-
-
-func _on_button_2_pressed():
-	print("PREV LEVEL (dev)")
-	
-	if current_background:
-		current_background.queue_free()
-		current_background.get_node("GrassGround").visible = false
-		current_background.get_node("RockGround").visible = false
-		current_background.get_node("BossGround").visible = false
-	
-	Signals.CurrentSong -= 1
-	Signals.FinishLevel.emit(current_level_name)
