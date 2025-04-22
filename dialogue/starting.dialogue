@@ -1,24 +1,24 @@
 ~ start
 do Signals.inDialogue = true
 ???: [[Hi|Hello|Howdy]], whats up !!!!!!!!!
-MC: [wave]what the frigma[/wave] [#angry]
+You: [wave]what the frigma[/wave] [#angry]
 ???: Don't worry, I'm here to guide you!
 - Who are you?
-	MC: Who are you? [#happy]
+	You: Who are you? [#happy]
 	Nathan: I'm Nathan :)
-	MC: [shake]WHAT tHE FUUUUUUUuuuudge[/shake]
+	You: [shake]WHAT tHE FUUUUUUUuuuudge[/shake]
 	Nathan: [wave]teheee![/wave]
 - Am I dreaming?
-	MC: Am I dreaming?
+	You: Am I dreaming?
 	Nathan: no! (trust)
-	MC: ok! [#happy]
+	You: ok! [#happy]
 Nathan: Let's try connecting your um [wave]senses[/wave] to the world wowwww
 - errrm okay
-	MC: errrm okay [#happy]
+	You: errrm okay [#happy]
 	do Signals.inDialogue = false
 	do switch_to_rhythm_game("1-ENTER-EZRA")
 - oo i i a i u u i i a i
-	MC: oo i i a i u u i i a i[#happy]
+	You: oo i i a i u u i i a i[#happy]
 	do Signals.inDialogue = false
 	do switch_to_rhythm_game("1-ENTER-EZRA")
 => END
@@ -27,59 +27,84 @@ Nathan: Let's try connecting your um [wave]senses[/wave] to the world wowwww
 ~ Icon1
 do Signals.inDialogue = true
 if Signals.npcInteracted[0] == 0:
-	Icon: hey wanna help me out with smth
-	MC: ermmm sure ig[#angry]
-	Icon: okay 
+	Beauty: Look, look what I drew!
+	You: (It’s a poorly drawn tree with red apples. Scribbled handwriting claims that this is “Whispy Woods”.)
+	Beauty: I saw a big tree in the woods and so I wanted to draw it! Aren’t trees so pretty!
+	You: Some of them. But some of them aren’t.
+	Beauty: But all the trees can be pretty if you care for them! My papa and I water the baby trees every morning together!
+	You: (You stare at the girl’s drawing again. It’s slightly better than you thought.)[#happy]
+	You: (If this little girl can find beauty in nature, can I too?)
 else:
-	Icon: thanks for the help earlier
-	MC: np
+	You: (You stare at the girl’s drawing again. It’s slightly better than you thought.)[#happy]
+	You: (If this little girl can find beauty in nature, can I too?)
 do Signals.inDialogue = false
 => END
 
 ~ Icon2
 do Signals.inDialogue = true
 if Signals.npcInteracted[1] == 0:
-	Icon2: hey wanna help me out with smth
-	MC: ermmm sure ig[#angry]
-	Icon2: okay 
+	You: What are you doing here by the lake?
+	Emotion: Oh, you startled me!
+	You: Sorry.
+	Emotion: You’re fine, I get easily lost in how calming this lake is. It makes me happy, so I come here often.
+	You: (You stare across the glittering water...)
+	Emotion: ...Hopefully it makes you feel happy too!
+	You: ...
+	You: ...Thank you. Yeah, it does.[#happy]
+	You: (Who knew that nature could evoke such emotions?)[#happy]
 else:
-	Icon2: thanks for the help earlier
-	MC: np
+	You: (You stare across the glittering water...)
+	You: (Who knew that nature could evoke such emotions?)[#happy]
 do Signals.inDialogue = false
 => END!
 
 ~ Icon3
 do Signals.inDialogue = true
 if Signals.npcInteracted[2] == 0:
-	Icon3: hey wanna help me out with smth
-	MC: ermmm sure ig[#angry]
-	Icon3: okay 
+	Connection: Care to sit with me on this bench, young one?
+	You: Sure.
+	Connection: It’s good to quiet down sometimes. You young people are so often lost in the noise of life and forget to appreciate the rhythm of nature around us.
+	You: …
+	You: …
+	You: (The wind blows a soft melody across the trees.)
+	You: (...This is nice.)[#happy]
 else:
-	Icon3: thanks for the help earlier
-	MC: np
+	You: (The wind blows a soft melody across the trees.)
+	You: (This is nice.)[#happy]
 do Signals.inDialogue = false
 => END
 
 ~ Icon4
 do Signals.inDialogue = true
 if Signals.npcInteracted[3] == 0:
-	Icon4: hey wanna help me out with smth
-	MC: ermmm sure ig[#angry]
-	Icon4: okay 
+	You: What are you doing right now?
+	Compassion: Me? I’m cleaning up the community flowerbed. Then I’ve got to water the saplings over there with my daughter.
+	You: You do a lot for our community. Thanks.[#happy]
+	Compassion: Well it’s always good to watch after our plants and sort. Besides, she loved nature and I suppose keeping it alive makes me happy.
+	You: If you ever need help, just ask![#happy]
+	Compassion: Thank you, and if you see anyone littering make sure to tell them off for me!
+	You: (It's nice to see that people care so much about our community, too.)[#happy]
 else:
-	Icon4: thanks for the help earlier
-	MC: np
+	You: If you ever need help, just ask![#happy]
+	Compassion: Thank you, and if you see anyone littering make sure to tell them off for me!
+	You: (It's nice to see that people care so much about our community, too.)[#happy]
 do Signals.inDialogue = false
 => END
 
 ~ Icon5
 do Signals.inDialogue = true
 if Signals.npcInteracted[4] == 0:
-	Icon5: hey wanna help me out with smth
-	MC: ermmm sure ig[#angry]
-	Icon5: okay 
+	Meaning: My name’s Meaning, and I am three! I would really like to see a tree!
+	You: Literally look in any direction...?
+	Meaning: La-la-la-la-la-la-la-la-la-la-lee, I say let it grow!
+	You: What..?
+	Meaning: It’s my faaaavorite lyrics from my faaaavorite song from my faaaavorite movie!
+	You: Okay..
+	You: (Now that I think about it, do I even have a favorite tree..?)
+	You: (Maybe I should try to find something meaningful in nature, too.)[#happy]
 else:
-	Icon5: thanks for the help earlier
-	MC: np
+	Meaning: La-la-la-la-la-la-la-la-la-la-lee, I say let it grow!
+	You: (Now that I think about it, do I even have a favorite tree..?)
+	You: (Maybe I should try to find something meaningful in nature, too.)[#happy]
 do Signals.inDialogue = false
 => END
