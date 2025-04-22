@@ -3,6 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AudioStreamPlayer2D.stream = load("res://music/A Town of Your Dreams.mp3")
+	$AudioStreamPlayer2D.play()
 	randomize()
 	var listIcons = [0,1,2,3,4]
 	listIcons.shuffle()
