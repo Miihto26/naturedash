@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccffk4j5a688c"
-path="res://.godot/imported/mc_happy.png-f3277a044b970289bab05e63e9d43e95.ctex"
+uid="uid://mfod78rvuhrq"
+path="res://.godot/imported/littlegirloverworld.png-1c13454dea38787456968f1997ee425c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/mc_happy.png"
-dest_files=["res://.godot/imported/mc_happy.png-f3277a044b970289bab05e63e9d43e95.ctex"]
+source_file="res://art/littlegirloverworld.png"
+dest_files=["res://.godot/imported/littlegirloverworld.png-1c13454dea38787456968f1997ee425c.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

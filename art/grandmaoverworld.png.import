@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xsr5okk7ygwc"
-path="res://.godot/imported/mc_angry.png-b29a9ac61ec471fc4114bfb06a1745a9.ctex"
+uid="uid://dblud8rpunh2r"
+path="res://.godot/imported/grandmaoverworld.png-6aac63a571de5e3857b6e7be134b516b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/mc_angry.png"
-dest_files=["res://.godot/imported/mc_angry.png-b29a9ac61ec471fc4114bfb06a1745a9.ctex"]
+source_file="res://art/grandmaoverworld.png"
+dest_files=["res://.godot/imported/grandmaoverworld.png-6aac63a571de5e3857b6e7be134b516b.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
