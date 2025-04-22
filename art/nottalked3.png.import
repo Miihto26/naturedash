@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2lu1jlvuc1oi"
-path="res://.godot/imported/nottalked.png-5b33c0181007f7b94b2c07a1a282c05c.ctex"
+uid="uid://b2qeol4e43ayp"
+path="res://.godot/imported/nottalked3.png-db4638281afffe5bfc6af235febd10c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/nottalked.png"
-dest_files=["res://.godot/imported/nottalked.png-5b33c0181007f7b94b2c07a1a282c05c.ctex"]
+source_file="res://art/nottalked3.png"
+dest_files=["res://.godot/imported/nottalked3.png-db4638281afffe5bfc6af235febd10c8.ctex"]
 
 [params]
 

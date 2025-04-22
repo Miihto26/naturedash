@@ -5,6 +5,8 @@ func _input(event):
 		if get_rect().has_point(to_local(event.position)) and not Signals.inDialogue:
 			DialogueManager.show_dialogue_balloon(load("res://dialogue/starting.dialogue"), self.name)
 			var nodeName = self.name
+			get_parent().get_node("SFXPlayer").stream = load("res://music/bubble-pop.mp3")
+			get_parent().get_node("SFXPlayer").play()
 			Signals.npcInteracted[String(nodeName)[4].to_int()-1] = 1
 			get_parent().get_node("Indicator" + String(nodeName)[4]).play("completed")
 			if String(nodeName)[4].to_int() <=2:

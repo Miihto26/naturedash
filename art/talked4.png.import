@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3bt2omwnks5r"
-path="res://.godot/imported/talked.png-87144f696955ad5980b2c9cb51c8dbfa.ctex"
+uid="uid://d3khviav5t5ga"
+path="res://.godot/imported/talked4.png-41fe5f89103ec69d9ed466ce6fbaf6cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/talked.png"
-dest_files=["res://.godot/imported/talked.png-87144f696955ad5980b2c9cb51c8dbfa.ctex"]
+source_file="res://art/talked4.png"
+dest_files=["res://.godot/imported/talked4.png-41fe5f89103ec69d9ed466ce6fbaf6cc.ctex"]
 
 [params]
 
