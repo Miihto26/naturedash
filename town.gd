@@ -32,6 +32,7 @@ func _ready():
 	get_node("ProgressionBars").get_node("compassion").value = 0
 	get_node("ProgressionBars").get_node("connectivity").value = 0
 	get_node("ProgressionBars").get_node("ecoanxiety").value = 100
+	
 	while get_node("ProgressionBars").get_node("compassion").value != Signals.compassion:
 		await get_tree().create_timer(0.05).timeout
 		get_node("ProgressionBars").get_node("compassion").value += 1
