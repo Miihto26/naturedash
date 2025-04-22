@@ -60,6 +60,15 @@ You: Maybe if I talked to some of the others in my town, I could ease my eco-anx
 You: I could also connect more with them and see how they show their compassion for our community...[#happy]
 => END
 
+~ ending
+You: Wow...I never knew that connecting with nature would make me feel so much better![#happy]
+You: After using my senses to reunite with nature and learning more about compassion and beauty from others in my community, I think I've grown a lot!
+You: Of course, it's still difficult to traverse all the information on the internet...
+You: But I think I'm ready to guide myself towards a more positive future![#happy]
+You: And I hope that Guide will be able to help others who are facing eco-anxiety as well...perhaps someone like you?[#happy]
+do end_credits()
+=> END
+
 ~ Icon1
 do Signals.inDialogue = true
 if Signals.npcInteracted[0] == 0:

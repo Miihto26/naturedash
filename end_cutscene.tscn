@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://h4kt3j0ja5bb"]
+
+[ext_resource type="Texture2D" uid="uid://cgivv5ihjbx7g" path="res://art/room.png" id="1_fpvx7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5bjnp"]
+load_path = "res://.godot/imported/woods.png-83cadcc3591fb33faca17f69e47d2be9.ctex"
+
+[node name="End Cutscene" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(571.5, 285.102)
+scale = Vector2(0.307792, 0.310895)
+texture = ExtResource("1_fpvx7")
+region_enabled = true
+region_rect = Rect2(62.3323, 217.696, 3891.05, 2425.8)
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="background2" type="Sprite2D" parent="."]
+modulate = Color(0.605898, 0.82787, 0.948332, 1)
+position = Vector2(584.05, 320.976)
+scale = Vector2(1.24474, 1.29244)
+texture = SubResource("CompressedTexture2D_5bjnp")
+region_enabled = true
+region_rect = Rect2(6.74561, 27.4446, 979.901, 563.509)

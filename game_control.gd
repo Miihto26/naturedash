@@ -7,6 +7,7 @@ enum GameState { OVERWORLD, RHYTHM_GAME, END_CREDITS }
 @onready var rhythm_game_scene = preload("res://levels/game_level.tscn")
 @onready var end_level_scene = preload("res://levels/end_level.tscn")
 @onready var end_credits_scene = preload("res://end_credits.tscn")
+@onready var end_cutscene = preload("res://end_cutscene.tscn")
 
 @onready var test_scene = preload("res://test_scene.tscn")
 
@@ -119,6 +120,13 @@ func switch_to_end_credits():
 	if game_test:
 		game_test.queue_free()
 	
+	active_scene = end_cutscene.instantiate()
+	add_child(active_scene)
+	DialogueManager.show_dialogue_balloon(load("res://dialogue/starting.dialogue"), "ending")
+	
+func end_credits():
+	if active_scene:
+		active_scene.queue_free()
 	print("Switching to End Credits")
 	active_scene = end_credits_scene.instantiate()
 	add_child(active_scene)
