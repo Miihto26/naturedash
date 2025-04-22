@@ -1,3 +1,250 @@
-[gd_scene format=3 uid="uid://f7cc471j7xsa"]
+[gd_scene load_steps=4 format=3 uid="uid://f7cc471j7xsa"]
+
+[ext_resource type="Script" path="res://end_credits.gd" id="1_itcpe"]
+[ext_resource type="FontFile" uid="uid://d1xd67u3ltxl8" path="res://Milk(RUS BY LYAJKA) Regular.ttf" id="2_fyv0j"]
+[ext_resource type="AudioStream" uid="uid://rnmj0lutn7ee" path="res://music/end_credits_music.mp3" id="2_oasp0"]
 
 [node name="EndCredits" type="Node2D"]
+script = ExtResource("1_itcpe")
+
+[node name="CreditsContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = -4.0
+offset_right = 1176.0
+offset_bottom = 3456.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleLabel" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0121387
+anchor_bottom = -0.0121387
+offset_left = 193.0
+offset_top = 713.0
+offset_right = 895.0
+offset_bottom = 864.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 75
+text = "NATUREDASH"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="DevelopmentTeam" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0121387
+anchor_bottom = -0.0121387
+offset_left = 185.0
+offset_top = 952.0
+offset_right = 887.0
+offset_bottom = 1103.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 35
+text = "Development team"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Developers" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0121387
+anchor_bottom = -0.0121387
+offset_left = 181.0
+offset_top = 1033.0
+offset_right = 883.0
+offset_bottom = 1184.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 25
+text = "jessica chen              matthew kao"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="soundtrackheader" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0121387
+anchor_bottom = -0.0121387
+offset_left = 185.0
+offset_top = 1222.0
+offset_right = 887.0
+offset_bottom = 1373.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 35
+text = "soundtrack"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="soundtrack" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0121387
+anchor_bottom = 0.0222543
+offset_left = 181.0
+offset_top = 1305.0
+offset_right = 883.0
+offset_bottom = 1456.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 25
+text = "1: enter-ezra
+2: thisismyworld
+3: outtamyway
+4: grandslam
+5: lunablade
+6: white-wings-of-wonder
+credits: riding my bike down windy ln."
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="artheader" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0121387
+anchor_bottom = -0.0121387
+offset_left = 185.0
+offset_top = 1695.0
+offset_right = 887.0
+offset_bottom = 1846.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 35
+text = "art"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="art" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0121387
+anchor_bottom = -0.0121387
+offset_left = 181.0
+offset_top = 1777.0
+offset_right = 883.0
+offset_bottom = 2047.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 25
+text = "jessica chen
+(custom character design and spritework)
+
+all other assets used are from free, public sources (e.g. itch.io)
+
+no ai was used in any of naturedash's assets"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="specialthanksheader" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0121387
+anchor_bottom = -0.0121387
+offset_left = 185.0
+offset_top = 2223.0
+offset_right = 887.0
+offset_bottom = 2374.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 35
+text = "special thanks"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="specialthanks" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0121387
+anchor_bottom = -0.0121387
+offset_left = 181.0
+offset_top = 2321.0
+offset_right = 883.0
+offset_bottom = 2591.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 25
+text = "games for change student challenge
+
+fwugneo on soundcloud for granting us access to use their music for our game"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="note1" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0121387
+anchor_bottom = 0.0104046
+offset_left = 181.0
+offset_top = 2689.0
+offset_right = 883.0
+offset_bottom = 2959.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 25
+text = "this game was made using godot 4
+
+
+
+
+
+
+
+remember:"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="note2" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0121387
+anchor_bottom = -0.0121387
+offset_left = 181.0
+offset_top = 3042.0
+offset_right = 883.0
+offset_bottom = 3312.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 80
+text = "nurture nature"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftImages" type="Node2D" parent="."]
+
+[node name="RightImages" type="Node2D" parent="."]
+
+[node name="ThankYouLabel" type="Label" parent="."]
+offset_left = 389.0
+offset_top = 277.0
+offset_right = 740.0
+offset_bottom = 363.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 60
+text = "thank you"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="YGDALabel" type="Label" parent="."]
+offset_left = 282.0
+offset_top = 162.0
+offset_right = 869.0
+offset_bottom = 515.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 60
+text = "young game developers assocation (YGDA)"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="GameTitleLabel" type="Label" parent="."]
+offset_left = 87.0
+offset_top = 203.0
+offset_right = 1049.0
+offset_bottom = 416.0
+theme_override_fonts/font = ExtResource("2_fyv0j")
+theme_override_font_sizes/font_size = 150
+text = "naturedash"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_oasp0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
